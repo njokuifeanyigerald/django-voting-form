@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voting app</title>
+</head>
+<body style="width: 100%; margin-left: 500px;">
+    <h3>select which association you would like to vote for?</h3>
+    {{message}}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.chosen_association_options}}
+        <br><br>
+        {% if user.is_authenticated %}
+        {{form.other_association_name}}
+        {% endif %}
+        <br><br>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
